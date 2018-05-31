@@ -42,6 +42,8 @@ void Encoder_Init_TIM2(void)
   
   TIM_ClearFlag(TIM2, TIM_FLAG_Update);//清除TIM的更新标志位
   TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
+	if(Menu_MODE==1)TIM_SetCounter(TIM2,10000);
+  else             TIM_SetCounter(TIM2,0);
   TIM_Cmd(TIM2, ENABLE); 
 }
 /**************************************************************************
@@ -83,6 +85,7 @@ void Encoder_Init_TIM4(void)
   
   TIM_ClearFlag(TIM4, TIM_FLAG_Update);
   TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
+	 TIM_SetCounter(TIM4,10000);
   TIM_Cmd(TIM4, ENABLE); 
 }
 
@@ -91,14 +94,31 @@ void Encoder_Init_TIM4(void)
 入口参数：定时器
 返回  值：速度值
 **************************************************************************/
-int Read_Encoder(u8 TIMX)
+int Read_Velocity(u8 TIMX)
 {
     int Encoder_TIM;    
    switch(TIMX)
 	 {
-	   case 2:  Encoder_TIM= (short)TIM2 -> CNT;  TIM2 -> CNT=0;break;   //读取编码器的数据并清零
-		 case 3:  Encoder_TIM= (short)TIM3 -> CNT;  TIM3 -> CNT=0;break;	 //读取编码器的数据并清零
-		 case 4:  Encoder_TIM= (short)TIM4 -> CNT;  TIM4 -> CNT=0;break;	 //读取编码器的数据并清零
+	   case 2:  Encoder_TIM= (short)TIM2 -> CNT;  TIM2 -> CNT=0; break;
+		 case 3:  Encoder_TIM= (short)TIM3 -> CNT;  TIM3 -> CNT=0; break;	
+		 case 4:  Encoder_TIM= (short)TIM4 -> CNT;  TIM4 -> CNT=0; break;	
+		 default:  Encoder_TIM=0;
+	 }
+		return Encoder_TIM;
+}
+/**************************************************************************
+函数功能：读取位置信息
+入口参数：定时器
+返回  值：位置值
+**************************************************************************/
+int Read_Position(u8 TIMX)
+{
+    int Encoder_TIM;    
+   switch(TIMX)
+	 {
+	   case 2:  Encoder_TIM= (short)TIM2 -> CNT;  break;
+		 case 3:  Encoder_TIM= (short)TIM3 -> CNT;  break;	
+		 case 4:  Encoder_TIM= (short)TIM4 -> CNT;  break;	
 		 default:  Encoder_TIM=0;
 	 }
 		return Encoder_TIM;

@@ -674,36 +674,6 @@
               <FileType>1</FileType>
               <FilePath>..\MiniBalance_HARDWARE\IIC\IOI2C.c</FilePath>
             </File>
-            <File>
-              <FileName>usartx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MiniBalance_HARDWARE\USARTX\usartx.c</FilePath>
-            </File>
-            <File>
-              <FileName>stmflash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MiniBalance_HARDWARE\STMFLASH\stmflash.c</FilePath>
-            </File>
-            <File>
-              <FileName>spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MiniBalance_HARDWARE\SPI\spi.c</FilePath>
-            </File>
-            <File>
-              <FileName>24l01.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MiniBalance_HARDWARE\NRF24L01\24l01.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MiniBalance_HARDWARE\TIMER\timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>can.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MiniBalance_HARDWARE\CAN\can.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

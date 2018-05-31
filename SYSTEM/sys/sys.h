@@ -22,22 +22,13 @@
 #include "timer.h"
 #include "can.h"
 #define SYSTEM_SUPPORT_OS		0		//定义系统文件夹是否支持UCOS
-extern u8 Way_Angle;                                      //获取角度的算法，1：四元数  2：卡尔曼  3：互补滤波
-extern int Encoder_Left,Encoder_Right;                     //左右编码器的脉冲计数
-extern int Moto1,Moto2;                                     //电机PWM变量 应是motor的 向moto致敬	
-extern u8 Flag_Qian,Flag_Hou,Flag_Left,Flag_Right,Flag_sudu; //蓝牙遥控相关的变量
-extern u8 Flag_Stop,Flag_Show,Flag_Hover;                    //停止标志位和 显示标志位 默认停止 显示打开
-extern int Voltage,Voltage_Zheng,Voltage_Xiao;                //电池电压采样相关的变量
-extern float Roll,Angle_Balance,Gyro_Balance,Gyro_Turn;           //平衡倾角 平衡陀螺仪 转向陀螺仪
-extern float Show_Data_Mb,Angle_Flash;                       //全局显示变量，用于显示需要查看的数据
-extern int Temperature;
-extern u32 Distance;                                           //超声波测距
-extern u8 Bi_zhang,delay_50,delay_flag,PID_Send,Flash_Send;
-extern float Acceleration_Z;
-extern float Balance_Kp,Balance_Kd,Velocity_Kp,Velocity_Ki;
-extern u16 PID_Parameter[10],Flash_Parameter[10];
-extern float Zhongzhi;
-extern u32 Remoter_Ch1,Remoter_Ch2; 		
+extern u8 Flag_Stop,delay_50,delay_flag,Flash_Send,Flag_OLED,PID_Send;            //停止标志位 50ms精准演示标志位
+extern int Encoder,Encoder_Key,Target_Position,Target_Velocity; //编码器的脉冲计数
+extern int Moto;                                    //电机PWM变量 应是Motor的 向Moto致敬	
+extern int Voltage;                                 //电池电压采样相关的变量
+extern float Position_KP,Position_KI,Position_KD,Velocity_KP,Velocity_KI;           //PID系数
+extern float Amplitude_PKP,Amplitude_PKI,Amplitude_PKD,Amplitude_VKP,Amplitude_VKI; //PID调试相关参数
+extern float Menu_PID,Menu_MODE,Angle_Balance,Roll;     
 	 
 //位带操作,实现51类似的GPIO控制功能
 //具体实现思想,参考<<CM3权威指南>>第五章(87页~92页).M4同M3类似,只是寄存器地址变了.

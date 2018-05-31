@@ -263,7 +263,6 @@ void DMP_Init(void)
 { 
    u8 temp[1]={0};
    i2cRead(0x68,0x75,1,temp);
-	 Flag_Show=1;
 	 printf("mpu_set_sensor complete ......\r\n");
 	if(temp[0]!=0x68)NVIC_SystemReset();
 	if(!mpu_init())
@@ -288,7 +287,6 @@ void DMP_Init(void)
 	  if(!mpu_set_dmp_state(1))
 	  	 printf("mpu_set_dmp_state complete ......\r\n");
   }
-	Flag_Show=0;
 }
 /**************************************************************************
 函数功能：读取MPU6050内置DMP的姿态信息

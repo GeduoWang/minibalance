@@ -1,6 +1,6 @@
 #include "stm32f4xx.h"
 #include "sys.h"  
-u8 Way_Angle=2;                             //获取角度的算法，1：四元数  2：卡尔曼  3：互补滤波 
+u8 Way_Angle=3;                             //获取角度的算法，1：四元数  2：卡尔曼  3：互补滤波 
 u8 Flag_Qian,Flag_Hou,Flag_Left,Flag_Right,Flag_sudu=2; //蓝牙遥控相关的变量
 u8 Flag_Stop=1,Flag_Show=0,Flag_Hover=0;    //停止标志位和 显示标志位 默认停止 显示打开
 int Encoder_Left,Encoder_Right;             //左右编码器的脉冲计数
@@ -14,7 +14,7 @@ u8 delay_50,delay_flag,Bi_zhang=0,PID_Send,Flash_Send; //延时和调参等变量
 float Acceleration_Z;                       //Z轴加速度计  
 float Balance_Kp=300,Balance_Kd=1,Velocity_Kp=80,Velocity_Ki=0.4;//PID参数
 u16 PID_Parameter[10],Flash_Parameter[10];  //Flash相关数组
-float Zhongzhi=1;                          //机械中值
+float Zhongzhi=-4;                          //机械中值
 u32 Remoter_Ch1=1500,Remoter_Ch2=1500;      //航模遥控接收变量
 int main(void)
 {

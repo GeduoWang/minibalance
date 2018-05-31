@@ -46,8 +46,6 @@ void oled_show(void)
 		                      OLED_ShowNumber(45,40,Voltage/100,2,12);
 		                      OLED_ShowNumber(68,40,Voltage%100,2,12);
 		 if(Voltage%100<10) 	OLED_ShowNumber(62,40,0,2,12);
-		
-													OLED_ShowString(105,40,"F4");
 		//=============第六行显示角度=======================//
 		                      OLED_ShowString(0,50,"Angle");
 		if(Angle_Balance<0)		OLED_ShowNumber(45,50,Angle_Balance+360,3,12);
